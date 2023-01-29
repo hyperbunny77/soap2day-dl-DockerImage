@@ -12,7 +12,7 @@ const ua = process.argv[5];
 const cookie = JSON.parse(process.argv[6]); 
 
 (async() => {
-  const browser = await puppeteer.launch({executablePath: cPath, headless: true});
+  const browser = await puppeteer.launch({executablePath: cPath, headless: true,args: ['--no-sandbox']});
   const page = await browser.newPage();
   await page.setUserAgent(ua);
   await page.setCookie(...cookie);
