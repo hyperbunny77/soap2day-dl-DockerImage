@@ -9,7 +9,7 @@ const url = process.argv[3];
 const ua = process.argv[4]; 
 
 (async() => {
-  const browser = await puppeteer.launch({executablePath: cPath, headless: true});
+  const browser = await puppeteer.launch({executablePath: cPath, headless: true,args: ['--no-sandbox']});
   const page = await browser.newPage();
   await page.setUserAgent(ua);
   await page.goto(url, {timeout: 15000, waitUntil: 'domcontentloaded'});
